@@ -34,7 +34,7 @@
     {
       "owner": "ESP32Async",
       "name": "ESPAsyncTCP",
-      "version": "^2.0.0",
+      "version": "https://github.com/abratchik/ESPAsyncTCP.git",
       "platforms": "espressif8266"
     },
     {
