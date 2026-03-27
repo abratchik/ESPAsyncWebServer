@@ -85,9 +85,6 @@ AsyncWebServerRequest::AsyncWebServerRequest(AsyncWebServer *s, AsyncClient *c)
 
 AsyncWebServerRequest::~AsyncWebServerRequest() {
   if (_client) {
-    // usually it is _client's disconnect triggers object destruct, but for completeness we define behavior
-    // if for some reason *this will be destructed while client is still connected
-    _client->onDisconnect(nullptr);
     delete _client;
     _client = nullptr;
   }

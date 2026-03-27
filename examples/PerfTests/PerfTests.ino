@@ -228,7 +228,9 @@ void setup() {
 static uint32_t lastSSE = 0;
 static uint32_t deltaSSE = 10;
 
+#ifdef ESP32
 static uint32_t lastHeap = 0;
+#endif
 
 void loop() {
   uint32_t now = millis();
