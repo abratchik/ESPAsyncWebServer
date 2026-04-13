@@ -112,9 +112,17 @@ void setup() {
   Serial.begin(115200);
 
 #if ASYNCWEBSERVER_WIFI_SUPPORTED
-  WiFi.mode(WIFI_AP);
-  WiFi.softAP("esp-captive");
+	WiFi.mode(WIFI_STA);
+	WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+	while (WiFi.status() != WL_CONNECTED) {
+		Serial.print('.');
+		delay(500);
+	}
+
+  Serial.printf("\nWiFi connected on %s:%d\n", WiFi.localIP().toString().c_str(), 80);
 #endif
+
+
 
 #ifdef ESP32
   LittleFS.begin(true);
